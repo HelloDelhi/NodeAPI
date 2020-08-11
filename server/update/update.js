@@ -1,8 +1,8 @@
 let mongodb= require('mongodb');
 let naresh= mongodb.MongoClient;
-
+let MongoDB_URI='mongodb+srv://HelloRahul:<password>@clustor0.1hlyz.mongodb.net/<dbname>?retryWrites=true&w=majority';
 let update= require('express').Router().put('/',(req,res)=>{
-   naresh.connect('mongodb://localhost:27017/online',(err,db)=>{
+   naresh.connect(MongoDB_URI,(err,db)=>{
       if(err) throw err;
       else{
           db.collection('employees').updateOne({'firstName':req.body.firstName},{$set:{'lastName':req.body.lastName,
