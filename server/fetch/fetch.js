@@ -1,9 +1,11 @@
 let mongodb= require('mongodb')
 let naresh=  mongodb.MongoClient
-let MongoDB_URI='mongodb+srv://HelloRahul:JqkkLjhSggDAuw9v@clustor0.1hlyz.mongodb.net/online?retryWrites=true&w=majority';
+const maogoose= require('mongoose');
+const URL= 'mongodb+srv://HelloRahul:JqkkLjhSggDAuw9v@clustor0.1hlyz.mongodb.net/online?retryWrites=true&w=majority';
+
 
 let fetch= require('express').Router().get('/',(req,res)=>{
-     naresh.connect(MongoDB_URI,(err,db)=>{
+    maogoose.connect(URL,(err,db)=>{
         if(err) throw err;
         else{
         db.collection('employees').find().toArray((err,array)=>{
