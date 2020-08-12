@@ -1,9 +1,9 @@
 let mongodb=require('mongodb');
 let naresh= mongodb.MongoClient;
-const maogoose= require('mongoose');
+const mongoose= require('mongoose');
 const URL= 'mongodb+srv://HelloRahul:JqkkLjhSggDAuw9v@clustor0.1hlyz.mongodb.net/online?retryWrites=true&w=majority';
 let remove= require('express').Router().delete('/',(req,res)=>{
-   naresh.connect(URL,(err,db)=>{
+   mongoose.connect(URL,(err,db)=>{
       if(err) throw err;
       else{
           db.collection('employees').deleteOne({'firstName':req.body.firstName},(err,result)=>{
