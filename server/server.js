@@ -12,5 +12,5 @@ app.use('/insert',require('./insert/insert'));
 app.use('/update',require('./update/update'));
 app.use('/delete',require('./delete/delete'));
 
-app.listen(8080);
+app.listen(process.env.PORT|| 8080);
 console.log('server is listening the port no 8080');
